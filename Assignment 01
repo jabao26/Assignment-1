@@ -1,0 +1,78 @@
+// Student Class
+class Student {
+    String studentID;
+    String name;
+    String course;
+
+    // Constructor
+    public Student(String studentID, String name, String course) {
+        this.studentID = studentID;
+        this.name = name;
+        this.course = course;
+    }
+
+    // Method to display student information
+    public void displayInfo() {
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Name: " + name);
+        System.out.println("Course: " + course);
+        System.out.println();
+    }
+}
+
+// BankAccount Class
+class BankAccount {
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
+
+    // Constructor
+    public BankAccount(String accountNumber, String accountHolder, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+
+    // Deposit method
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit Successful!");
+    }
+
+    // Withdraw method
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal Successful!");
+        } else {
+            System.out.println("Insufficient Balance!");
+        }
+    }
+
+    // Display balance method
+    public void displayBalance() {
+        System.out.printf("Current Balance: %.2f\n", balance);
+    }
+}
+
+// Main Class
+public class Assignment1 {
+    public static void main(String[] args) {
+
+        // Create Student Objects
+        Student student1 = new Student("2023001", "Shane Jabao", "BS IT");
+        Student student2 = new Student("2023002", "Juan Dela Cruz", "BS Information Technology");
+
+        // Display Student Information
+        student1.displayInfo();
+        student2.displayInfo();
+
+        // Create BankAccount Object
+        BankAccount account = new BankAccount("123456789", "Shane Jabao", 5000.00);
+
+        // Perform Transactions
+        account.deposit(1000.00);
+        account.withdraw(1500.00);
+        account.displayBalance();
+    }
+}
